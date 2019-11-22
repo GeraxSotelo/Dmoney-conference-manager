@@ -1,3 +1,21 @@
-body {
-    height: 100vh;
+header, footer {
+    height: 8em;
+}
+
+main {
+    min-height: 75vh;
+}
+
+.session-container {
+    position: relative;
+}
+
+#delete-session {
+    color: black;
+    cursor: pointer;
+    font-size: 2em;
+    position: absolute;
+    top: 0;
+    right: 2%;
+    text-shadow: 2px 2px grey;
 }

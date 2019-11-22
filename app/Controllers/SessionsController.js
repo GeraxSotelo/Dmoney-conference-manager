@@ -5,20 +5,40 @@ import _store from "../store.js"
 function _drawSessions() {
   // get html
 
- let template = ''
- let sessions = _store.State.sessions
- sessions.forEach(session => template += session.template)
- document.querySelector("#sessions").innerHTML = template
+  let template = ''
+  let sessions = _store.State.sessions
+  sessions.forEach(session => template += session.template)
+  document.querySelector("#sessions").innerHTML = template
 }
 
 // public
 export default class SessionsController {
   constructor() {
     _drawSessions();
-    console.log('Hello from sesionsController')
   }
 
-  addSpeaker(event, sessionId){
+  /****************SECTION ADD SESSION****************/
+  addSession(event) {
+    event.preventDefault()
+    let formData = event.target //get POJO
+    let newSession = {
+      name: formData.name.value,
+      speakers: []
+    }
+
+    SessionsService.addSession(newSession)
+    formData.reset()
+    _drawSessions()
+  }
+
+  /****************SECTION DELETE SESSION****************/
+  deleteSession(sessionId) {
+    SessionsService.deleteSession(sessionId)
+    _drawSessions()
+  }
+
+  /****************SECTION ADD SPEAKER****************/
+  addSpeaker(event, sessionId) {
     event.preventDefault()
     let formData = event.target
 
@@ -33,7 +53,9 @@ export default class SessionsController {
     formData.reset()
     _drawSessions()
   }
-  deleteSpeaker (sessionId, speakerId) {
+
+  /****************SECTION DELETE SPEAKER****************/
+  deleteSpeaker(sessionId, speakerId) {
     SessionsService.deleteSpeaker(sessionId, speakerId)
     _drawSessions()
   }

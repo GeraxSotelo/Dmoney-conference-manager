@@ -11,56 +11,35 @@
 </head>
 
 <body class="text-white">
-    <header class="container-fluid bg-dark h-25 text-center">
+    <header class="container-fluid bg-dark text-center">
         <div class="row h-100 align-items-center">
             <h1 class="col-12">
                 Conference Manager
             </h1>
         </div>
     </header>
-    <main class="container-fluid h-75 bg-secondary">
-        <div id="sessions" class="row p-3 justify-content-around">
-            <!-- example sessions lets get these dynamically drawing on the screen -->
-            <div class="col-5 mt-3 p-3 border rounded bg-info">
-                <h1 class="text-center border-bottom">Session Name</h1>
-                <dl class="ml-5">
-                    
-                    <dt>Speaker Name</dt>
-                    <dd>Topic</dd>
-                    <button class="btn btn-danger" type="button" onclick="app.SessionsController.deleteSpeaker()">Delete</button>
-                </dl>
-                
-                  
-            </div>
-            <div class="col-5 mt-3 p-3 border rounded bg-info">
-                <h1 class="text-center border-bottom">Session Name</h1>
-                <dl class="ml-5">
-                    <dt>Speaker Name</dt>
-                    <dd>Topic</dd>
-                    <dt>Speaker Name</dt>
-                    <dd>Topic</dd>
-                </dl>
-            </div>
-            <div class="col-5 mt-3 p-3 border rounded bg-info">
-                <h1 class="text-center border-bottom">Session Name</h1>
-                <dl class="ml-5">
-                    <dt>Speaker Name</dt>
-                    <dd>Topic</dd>
-                </dl>
-            </div>
-            <div class="col-5 mt-3 p-3 border rounded bg-info">
-                <h1 class="text-center border-bottom">Session Name</h1>
-                <dl class="ml-5">
-                    <dt>Speaker Name</dt>
-                    <dd>Topic</dd>
-                    <dt>Speaker Name</dt>
-                    <dd>Topic</dd>
-                    <dt>Speaker Name</dt>
-                    <dd>Topic</dd>
-                </dl>
+    <main class="container-fluid bg-secondary">
+        <div class="row justify-content-center">
+            <div class="col-3 bg-light border rounded text-dark mt-2 pt-2">
+                <form class="form-group text-center" onsubmit="app.sessionsController.addSession(event)">
+                    <h3>Create Session</h3>
+                    <input type="text" name="name" class="form-control" placeholder="Session Name...">
+                    <button class="btn btn-primary btn-block w-75 mx-auto">Add</button>
+                </form>
             </div>
         </div>
+        <div id="sessions" class="row p-3 justify-content-around">
+
+        </div>
     </main>
+
+    <footer class="container-fluid bg-dark text-center">
+        <div class="row h-100 align-items-center">
+            <div class="col-12">
+                <p>Gerax Sotelo &copy;2019</p>
+            </div>
+        </div>
+    </footer>
 
     <script src="app/main.js" type="module"></script>
 </body>

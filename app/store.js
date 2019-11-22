@@ -3,15 +3,15 @@ const STORAGEKEY = "CONFERENCE.STATE";
 
 let _state = {
   /** @type {Session[]} */
-  // sessions: [new Session({name: "Morning Session", speakers: []}), new Session({name: "Midnight Session ", speakers: []})]
+  // sessions: [new Session({ name: "Morning Session", speakers: [] }), new Session({ name: "Midnight Session ", speakers: [] })]
   sessions: []
-}; 
+};
 
 function _loadState() {
   try {
     let data = JSON.parse(localStorage.getItem(STORAGEKEY));
     _state.sessions = data.sessions.map(s => new Session(s));
-  } catch (e) {}
+  } catch (e) { }
 }
 _loadState();
 
