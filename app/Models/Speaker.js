@@ -9,12 +9,12 @@ export default class Speaker {
     this.time = time;
   }
 
-  get template(){
+  get template() {
     return `
-            <dt>${this.name}</dt>
-            <dd>${this.topic}</dd>
-            <dd>${this.time}</dd>
-            <button class="btn btn-danger" type="button" onclick="app.sessionsController.deleteSpeaker('${this.sessionId}','${this.id}')">Delete</button>
+      <dt>${this.name}</dt>
+      <dd>${this.topic}</dd>
+      <dd>${this.time}</dd>
+      <button class="btn btn-danger" type="button" onclick="app.sessionsController.deleteSpeaker('${this.sessionId}','${this.id}')">Delete</button>
     `
   }
   // TODO add HTML template
